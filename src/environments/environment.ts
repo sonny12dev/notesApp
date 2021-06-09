@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_URL: 'http://localhost:8000',
+  NOTES: {
+    ADD_NOTES: 'addNotes',
+    DISPLAY_ALL_NOTES: 'listNotes',
+    GET_SPECIFIC_NOTE: 'listNotes',
+    EDIT_SPECIFIC_NOTE: 'editNote',
+    DELETE_SPECIFIC_NOTE: 'deleteNote'
+  }
 };
 
 /*

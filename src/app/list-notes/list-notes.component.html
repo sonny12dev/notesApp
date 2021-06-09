@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of listNotes; index as i">
+            <th class="align-middle" scope="row">{{i+1}}</th>
+            <td id={{list._id}} class="align-middle">{{list.notesTitle}}</td>
+            <td class="align-middle">
+                <button type="button" (click)="viewNote(list)" class="btn btn-outline-primary mr-2">View</button>
+                <button type="button" (click)="editNote(list)" class="btn btn-outline-info mr-2">Edit</button>
+                <button type="button" (click)="deleteNote(list._id)" class="btn btn-outline-warning">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- This is to show or hide viewNotes -->
+    <div *ngIf="viewNoteVisible" class="col-sm-6 col-md-6 col-lg-6">
+      
+      <ul class="list-group">
+        <li class="list-group-item d-flex">
+          {{ notesTitle }}
+        </li>
+        <li [innerHTML]="notesBody" class="list-group-item d-flex">
+        </li>
+      </ul>
+
+    </div>
+
+    <div *ngIf="editNoteVisible" class="col-sm-6 col-md-6 col-lg-6">
+      <edit-notes [editListNotes]="editListNotes"></edit-notes>
+    </div>
+  </div>
+</div>
